@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>상품관리 / 상품관리</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <!--AOS 애니메이션-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!--스와이퍼-->
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.css"
+    />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script src="./js/admin.js"></script>
+  </head>
+
+  <body>
+    <div class="admin_common">
+      <!----======== 관리자 레이아웃 상단    ========---->
+      <section id="admin_header_wrap">
+        <div id="admin_top_area"></div>
+        <div id="admin_side_area"></div>
+      </section>
+      <!----======== 관리자 레이아웃 상단 끝 ========---->
+      <!----======== 내용부분 ========---->
+      <section id="admin_contents_wrap">
+        <p class="title">상품관리 / 가이드러너</p>
+        <article class="board">
+          <div class="filter_wrap">
+            <div>
+              <p class="name">둥록일</p>
+              <input type="date" /> - <input type="date" />
+            </div>
+            <div>
+              <p>검색어</p>
+              <select>
+                <option>전체</option>
+                <option>상품번호</option>
+                <option>상품명</option>
+              </select>
+              <input class="text" style="width: 222px" />
+            </div>
+          </div>
+          <div class="filter_wrap">
+            <div class="product_category">
+              <p>카테고리</p>
+              <select>
+                <option>전체</option>
+                <option>1:1 컨설팅</option>
+                <option>클래스</option>
+                <option>포트폴리오 멘토링</option>
+                <option>공모사업 지원가이드</option>
+                <option>기타</option>
+              </select>
+            </div>
+            <div>
+              <p>진열상태</p>
+              <ul class="filter_select">
+                <li class="on">전체</li>
+                <li>진열</li>
+                <li>미진열</li>
+              </ul>
+            </div>
+          </div>
+          <div class="filter_wrap">
+            <div>
+              <p>판매상태</p>
+              <ul class="filter_select">
+                <li class="on">전체</li>
+                <li>판매중</li>
+                <li>판매종료</li>
+              </ul>
+            </div>
+            <div>
+              <p>메인노출</p>
+              <ul class="filter_select">
+                <li class="on">전체</li>
+                <li>노출</li>
+                <li>비노출</li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn_area">
+            <button type="button">
+              <i class="fa fa-search" aria-hidden="true"></i>검색
+            </button>
+            <button type="button">
+              <i class="fa fa-repeat" aria-hidden="true"></i>초기화
+            </button>
+          </div>
+        </article>
+
+        <article id="search_result">
+          <div class="btn_area">
+            <button
+              onclick="location.href='product_add.html'"
+              type="button"
+              class="right"
+            >
+              선택삭제
+            </button>
+            <button onclick="location.href='product_add.html'" type="button">
+              상품등록
+            </button>
+            <button onclick="location.href='product_add.html'" type="button">
+              취소/환불 정책
+            </button>
+          </div>
+          <table class="table_defalt">
+            <thead>
+              <tr>
+                <th width="30px"><input type="checkbox" /></th>
+                <th width="50px">번호</th>
+                <th width="80px">관리</th>
+                <th width="120px">상품번호</th>
+                <th>상품명</th>
+                <th width="120px">카테고리</th>
+                <th width="220px">상품금액</th>
+                <th width="120px">진열상태</th>
+                <th width="80px">판매상태</th>
+                <th width="80px">메인노출</th>
+                <th width="100px">등록일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>
+                  <button
+                    type="button"
+                    class="in_btn"
+                    onclick="location.href='product_edit.html'"
+                  >
+                    수정
+                  </button>
+                </td>
+                <td>K08877254</td>
+                <td>컨설팅</td>
+                <td>1:1컨설팅</td>
+                <td>30,000</td>
+                <td>진열</td>
+                <td>판매중</td>
+                <td>노출</td>
+                <td>2024-05-27</td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="pagination" class="page_wrap"></div>
+        </article>
+      </section>
+      <!----======== 내용부분 끝 ========---->
+      <!----======== 관리자 레이아웃 하단    ========---->
+      <section id="admin_footer_wrap"></section>
+      <!----======== 관리자 레이아웃 하단 끝 ========---->
+    </div>
+
+    <script>
+      // 공통 영역
+      $(document).ready(function () {
+        $("#admin_top_area").load("./include/header.html");
+        $("#admin_side_area").load("./include/sidebar.html");
+        $("#pagination").load("./include/pagination.html");
+        $("#admin_footer_wrap").load("./include/footer.html");
+      });
+    </script>
+  </body>
+</html>
