@@ -99,12 +99,8 @@
 
         <article id="search_result">
           <div class="btn_area">
-            <button onclick="location.href='#none'" type="button" >
-              승인대기
-            </button>
-            <button onclick="location.href='gethering02_add.html' "">
-              승인완료
-            </button>
+            <button>승인대기</button>
+            <button>승인완료</button>
           </div>
           <table class="table_defalt">
             <thead>
@@ -130,7 +126,7 @@
                     class="in_btn"
                     onclick="open_modal('#gethering03_detail')"
                   >
-                  상세
+                    상세
                   </button>
                 </td>
                 <td>홍길동</td>
@@ -173,16 +169,21 @@
             </tr>
             <tr>
               <th>내용</th>
-              <td colspan="3" class="ta_left"><img src="./img/dummy_image.png"/>홍길동의 포트폴리오</td>
+              <td colspan="3" class="ta_left">
+                <img src="./img/dummy_image.png" />홍길동의 포트폴리오
+              </td>
             </tr>
             <tr>
               <th>첨부파일</th>
               <td colspan="3" class="ta_left">
-                <a href="#none" download class="download_file">test.jpg(3.2MB)</a>
-                <a href="#none" download class="download_file">test2.jpg(2.2MB)</a>
+                <a href="#none" download class="download_file"
+                  >test.jpg(3.2MB)</a
+                >
+                <a href="#none" download class="download_file"
+                  >test2.jpg(2.2MB)</a
+                >
               </td>
             </tr>
-            
           </table>
           <p class="label_name mt_20">승인상태</p>
           <div>
@@ -192,13 +193,12 @@
             </ul>
           </div>
           <p class="label_name required mt_20">승인일</p>
-            <div class="label_wrap">
-              <label class="w-50">
-                <input type="text" class="w-100" value="2024-10-23" disabled />
-              </label>
-            </div>
+          <div class="label_wrap">
+            <label class="w-50">
+              <input type="text" class="w-100" value="2024-10-23" disabled />
+            </label>
+          </div>
 
-          
           <div class="btn_area">
             <button onclick="close_modal()">취소</button>
             <button>저장</button>
