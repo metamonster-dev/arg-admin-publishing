@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>아트게더링 관리 / 게더링</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <!--AOS 애니메이션-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!--스와이퍼-->
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.css"
+    />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script src="./js/admin.js"></script>
+  </head>
+
+  <body>
+    <div class="admin_common">
+      <!----======== 관리자 레이아웃 상단    ========---->
+      <section id="admin_header_wrap">
+        <div id="admin_top_area"></div>
+        <div id="admin_side_area"></div>
+      </section>
+      <!----======== 관리자 레이아웃 상단 끝 ========---->
+      <!----======== 내용부분 ========---->
+      <section id="admin_contents_wrap">
+        <p class="title">아트게더링 관리 / 게더링</p>
+        <article class="board">
+          <div class="filter_wrap">
+            <div>
+              <p class="name">기간</p>
+              <select>
+                <option>전체</option>
+                <option>모집마감일</option>
+                <option>등록일</option>
+              </select>
+              <input type="date" /> - <input type="date" />
+            </div>
+            <div>
+              <p>검색어</p>
+              <select>
+                <option>전체</option>
+                <option>게더링 제목</option>
+                <option>제작사</option>
+                <option>모집분야</option>
+                <option>담당자</option>
+                <option>아이디</option>
+              </select>
+              <input
+                class="text"
+                style="width: 222px"
+                placeholder="검색어를 입력해주세요."
+              />
+            </div>
+          </div>
+          <div class="btn_area">
+            <button><i class="fa fa-search" aria-hidden="true"></i>검색</button>
+            <button>
+              <i class="fa fa-repeat" aria-hidden="true"></i>초기화
+            </button>
+          </div>
+        </article>
+
+        <article id="search_result">
+          <div class="btn_area">
+            <button>선택삭제</button>
+          </div>
+          <table class="table_defalt">
+            <thead>
+              <tr>
+                <th width="30px"><input type="checkbox" /></th>
+                <th width="50px">번호</th>
+                <th width="80px">관리</th>
+                <th width="*">게더링 제목</th>
+                <th width="120px">제작사</th>
+                <th width="140px">모집분야</th>
+                <th width="120px">모집인원</th>
+                <th width="160px">담당자</th>
+                <th width="160px">아이디</th>
+                <th width="160px">모집마감일</th>
+                <th width="120px">조회수</th>
+                <th width="140px">등록일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>
+                  <button
+                    type="button"
+                    class="in_btn"
+                    onclick="open_modal('#gethering01_detail')"
+                  >
+                    상세
+                  </button>
+                </td>
+                <td>디즈니 100년 특별전 전시회 스텝합...</td>
+                <td>디즈니</td>
+                <td>기타</td>
+                <td>5명</td>
+                <td>홍길도 실장</td>
+                <td>adgecfmk124</td>
+                <td>2024-06-27</td>
+                <td>34</td>
+                <td>2024-05-27</td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="pagination" class="page_wrap"></div>
+        </article>
+      </section>
+      <!----======== 내용부분 끝 ========---->
+      <!--모달-->
+      <article id="gethering01_detail" class="order_modal fullpage_modal">
+        <div class="board">
+          <a class="circle_btn" onclick="close_modal()"
+            ><i class="fa fa-times" aria-hidden="true"></i
+          ></a>
+          <p class="title">등록자 정보</p>
+          <table class="table_defalt">
+            <tr>
+              <th>아이디</th>
+              <td class="ta_left">dmonster@gmail.com</td>
+              <th>이름</th>
+              <td class="ta_left">홍길동</td>
+            </tr>
+            <tr>
+              <th>휴대폰 번호</th>
+              <td colspan="3" class="ta_left">010-1234-5678</td>
+            </tr>
+          </table>
+          <p class="title">게더링 정보</p>
+          <table class="table_defalt">
+            <tr>
+              <th>등록일</th>
+              <td class="ta_left">2024-10-16 / 2024-10-21</td>
+              <th>조회수</th>
+              <td class="ta_left">356</td>
+            </tr>
+            <tr>
+              <th>개인 정보 수집 및 이용 동의</th>
+              <td colspan="3" class="ta_left">동의함</td>
+            </tr>
+            <tr>
+              <th>게더링 제목</th>
+              <td colspan="3" class="ta_left">
+                디즈니 100년 특별전 전시회 스텝 모집 합니다.
+              </td>
+            </tr>
+            <tr>
+              <th>제작사</th>
+              <td colspan="3" class="ta_left">디즈니</td>
+            </tr>
+            <tr>
+              <th>모집분야</th>
+              <td class="ta_left">기타</td>
+              <th>모집인원</th>
+              <td class="ta_left">5명</td>
+            </tr>
+            <tr>
+              <th>경력</th>
+              <td colspan="3" class="ta_left">경력 내용</td>
+            </tr>
+            <tr>
+              <th>담당자</th>
+              <td class="ta_left">홍길동</td>
+              <th>휴대폰 번호</th>
+              <td class="ta_left">010-1234-5678</td>
+            </tr>
+            <tr>
+              <th>이메일</th>
+              <td class="ta_left">www.naver.com</td>
+              <th>모집 마감일</th>
+              <td class="ta_left">~ 10월 20일</td>
+            </tr>
+            <tr>
+              <th>기타</th>
+              <td colspan="3" class="ta_left">기타사항</td>
+            </tr>
+          </table>
+          <div class="btn_area">
+            <button onclick="close_modal()">목록</button>
+            <button>삭제</button>
+          </div>
+        </div>
+      </article>
+      <script>
+        function open_modal(modal_id) {
+          $(modal_id).addClass("on");
+        }
+        $(".modal_close").on("click", function () {
+          $(".fullpage_modal").removeClass("on");
+        });
+        function close_modal() {
+          $(".fullpage_modal").removeClass("on");
+        }
+      </script>
+
+      <!----======== 관리자 레이아웃 하단    ========---->
+      <section id="admin_footer_wrap"></section>
+      <!----======== 관리자 레이아웃 하단 끝 ========---->
+    </div>
+    <script>
+      // 공통 영역
+      $(document).ready(function () {
+        $("#admin_top_area").load("./include/header.html");
+        $("#admin_side_area").load("./include/sidebar.html");
+        $("#pagination").load("./include/pagination.html");
+        $("#admin_footer_wrap").load("./include/footer.html");
+      });
+    </script>
+  </body>
+</html>

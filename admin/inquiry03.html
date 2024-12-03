@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>설정 / 배너관리</title>
+    <title>문의관리 / 홍보-광고문의</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,73 +54,83 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">설정 / 팝업관리</p>
-        <form class="preferences_form board_write board">
-          <label>
-            <p class="label_name">제목</p>
-            <input type="text" />
-          </label>
-          <p class="label_name required">이미지</p>
-          <div class="imgfile_wrap mt_15">
+        <p class="title">문의관리 / 홍보-광고문의</p>
+        <article class="fillter_board board">
+          <div class="filter_wrap">
             <div>
-              <label class="imgfile">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                <input
-                  name="imgfile"
-                  type="file"
-                  accept=".png, .jpg"
-                  required
-                />
-              </label>
-              <p class="comment">
-                * jpg, png 파일만 등록 가능<br />
-                * 10MB 이하만 업로드 가능
-              </p>
+              <p>작성일</p>
+              <input type="date" /> - <input type="date" />
+            </div>
+            <div>
+              <p>검색어</p>
+              <select>
+                <option>전체</option>
+                <option>작성자 아이디</option>
+                <option>작성자 이름</option>
+                <option>상품명</option>
+                <option>문의 내용</option>
+              </select>
+              <input
+                class="text"
+                style="width: 260px"
+                placeholder="검색어를 입력해주세요."
+              />
             </div>
           </div>
-          <p class="label_name required pt_20">노출여부</p>
-          <input type="hidden" />
-          <ul class="filter_select3">
-            <li class="on">
-              <label><input type="hidden" name="" checked />노출</label>
-            </li>
-            <li>
-              <label><input type="hidden" name="" />미노출</label>
-            </li>
-          </ul>
-          <p class="label_name required">노출기간</p>
-          <label class="date_wrap">
+          <div class="filter_wrap2">
             <div>
-              <input type="date" required />
+              <p>답변상태</p>
+              <ul class="filter_select">
+                <li class="on">전체</li>
+                <li>답변대기</li>
+                <li>답변완료</li>
+              </ul>
             </div>
-            ~
-            <div>
-              <input type="date" required />
+            <div class="btn_area">
+              <button>
+                <i class="fa fa-search" aria-hidden="true"></i>검색
+              </button>
+              <button>
+                <i class="fa fa-repeat" aria-hidden="true"></i>초기화
+              </button>
             </div>
-          </label>
-          <lable>
-            <p class="label_name required pt_10">노출위치</p>
-            <select>
-              <option>홈</option>
-              <option>캘린더</option>
-              <option>가이드런</option>
-              <option>딥파인더</option>
-              <option>아트마켓</option>
-            </select>
-          </lable>
-          <lable>
-            <p class="label_name pt_10">링크 URL</p>
-            <input type="text" />
-            <select>
-              <option value="_blank" selected>새창</option>
-              <option value="_self">현재창</option>
-            </select>
-          </lable>
-        </form>
-        <div class="btm btn_area mt_40">
-          <button onclick="location.href='setting02.html'">목록</button>
-          <button type="submit">등록</button>
-        </div>
+          </div>
+        </article>
+
+        <article id="search_result">
+          <table class="table_defalt">
+            <thead>
+              <tr>
+                <th width="50px">번호</th>
+                <th width="80px">관리</th>
+                <th width="120px">작성자 아이디</th>
+                <th width="120px">작성자 이름</th>
+                <th width="*">문의 제목</th>
+                <th width="80px">답변상태</th>
+                <th width="120px">작성일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <button
+                    class="in_btn"
+                    onclick="location.href='inquiry03_detail.html'"
+                  >
+                    상세
+                  </button>
+                </td>
+                <td>dmonster</td>
+                <td>홍길동</td>
+                <td>문의 제목 노출</td>
+                <td>답변대기</td>
+                <td>2024-04-22</td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="pagination" class="page_wrap"></div>
+        </article>
       </section>
       <!----======== 내용부분 끝 ========---->
       <!----======== 관리자 레이아웃 하단    ========---->

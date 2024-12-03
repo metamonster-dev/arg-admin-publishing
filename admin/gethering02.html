@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>상품관리 / 가이드러너</title>
+    <title>아트게더링 관리 / 아티스트 소개</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,19 +54,20 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">상품관리 / 가이드러너</p>
+        <p class="title">아트게더링 관리 / 아티스트 소개</p>
         <article class="board">
           <div class="filter_wrap">
             <div>
-              <p class="name">둥록일</p>
+              <p class="name">등록일</p>
               <input type="date" /> - <input type="date" />
             </div>
             <div>
               <p>검색어</p>
               <select>
                 <option>전체</option>
-                <option>상품번호</option>
-                <option>상품명</option>
+                <option>아티스트 이름</option>
+                <option>해시태그</option>
+                <option>슬로건</option>
               </select>
               <input
                 class="text"
@@ -75,52 +76,33 @@
               />
             </div>
           </div>
-          <div class="filter_wrap">
-            <div class="product_category">
-              <p>카테고리</p>
-              <select>
-                <option>전체</option>
-                <option>1:1 컨설팅</option>
-                <option>클래스</option>
-                <option>포트폴리오 멘토링</option>
-                <option>공모사업 지원가이드</option>
-                <option>기타</option>
-              </select>
+          <div class="filter_wrap2">
+            <div class="filter_wrap" style="gap: 80px">
+              <div>
+                <p>노출상태</p>
+                <ul class="filter_select">
+                  <li class="on">전체</li>
+                  <li>노출</li>
+                  <li>비노출</li>
+                </ul>
+              </div>
+              <div>
+                <p>메인노출</p>
+                <ul class="filter_select">
+                  <li class="on">전체</li>
+                  <li>노출</li>
+                  <li>비노출</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <p>진열상태</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>진열</li>
-                <li>미진열</li>
-              </ul>
+            <div class="btn_area">
+              <button>
+                <i class="fa fa-search" aria-hidden="true"></i>검색
+              </button>
+              <button>
+                <i class="fa fa-repeat" aria-hidden="true"></i>초기화
+              </button>
             </div>
-          </div>
-          <div class="filter_wrap">
-            <div>
-              <p>판매상태</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>판매중</li>
-                <li>판매종료</li>
-              </ul>
-            </div>
-            <div>
-              <p>메인노출</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>노출</li>
-                <li>비노출</li>
-              </ul>
-            </div>
-          </div>
-          <div class="btn_area">
-            <button type="button">
-              <i class="fa fa-search" aria-hidden="true"></i>검색
-            </button>
-            <button type="button">
-              <i class="fa fa-repeat" aria-hidden="true"></i>초기화
-            </button>
           </div>
         </article>
 
@@ -129,11 +111,8 @@
             <button onclick="location.href='#none'" type="button" class="right">
               선택삭제
             </button>
-            <button onclick="location.href='product01_add.html'" type="button">
-              상품등록
-            </button>
-            <button onclick="openPopup('refund_policy01.html')" type="button">
-              취소/환불 정책
+            <button onclick="location.href='gethering02_add.html' "">
+              아티스트 등록
             </button>
           </div>
           <table class="table_defalt">
@@ -142,14 +121,12 @@
                 <th width="30px"><input type="checkbox" /></th>
                 <th width="50px">번호</th>
                 <th width="80px">관리</th>
-                <th width="120px">상품번호</th>
-                <th>상품명</th>
-                <th width="260px">카테고리</th>
-                <th width="220px">상품금액</th>
-                <th width="120px">진열상태</th>
-                <th width="80px">판매상태</th>
-                <th width="80px">메인노출</th>
-                <th width="100px">등록일</th>
+                <th width="180px">아티스트 이름</th>
+                <th width="120px">해시태그</th>
+                <th width="*">슬로건</th>
+                <th width="120px">노출상태</th>
+                <th width="120px">메인노출</th>
+                <th width="160px">등록일</th>
               </tr>
             </thead>
             <tbody>
@@ -160,17 +137,15 @@
                   <button
                     type="button"
                     class="in_btn"
-                    onclick="location.href='product01_edit.html'"
+                    onclick="location.href='gethering02_edit.html' ""
                   >
                     수정
                   </button>
                 </td>
-                <td>K08877254</td>
-                <td>컨설팅</td>
-                <td>1:1컨설팅</td>
-                <td>30,000</td>
-                <td>진열</td>
-                <td>판매중</td>
+                <td>홍길동</td>
+                <td>컬쳐, 아트, 피플</td>
+                <td>시선이 오래 머무는 것에 대해 기록합니다. ...</td>
+                <td>노출</td>
                 <td>노출</td>
                 <td>2024-05-27</td>
               </tr>
@@ -180,11 +155,11 @@
         </article>
       </section>
       <!----======== 내용부분 끝 ========---->
+
       <!----======== 관리자 레이아웃 하단    ========---->
       <section id="admin_footer_wrap"></section>
       <!----======== 관리자 레이아웃 하단 끝 ========---->
     </div>
-
     <script>
       // 공통 영역
       $(document).ready(function () {

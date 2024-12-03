@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>설정 / 배너관리</title>
+    <title>문의관리 / 홍보-광고문의</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,72 +54,51 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">설정 / 팝업관리</p>
-        <form class="preferences_form board_write board">
-          <label>
-            <p class="label_name">제목</p>
-            <input type="text" />
+        <p class="title">문의관리 / 홍보-광고문의</p>
+        <article class="review_wrap board">
+          <p class="label_name">문의 정보</p>
+          <table class="table_defalt">
+            <tr>
+              <th>작성자 아이디</th>
+              <td>dmonster</td>
+              <th>작성자 이름</th>
+              <td>홍길동</td>
+            </tr>
+            <tr>
+              <th>작성일</th>
+              <td>2024-06-17</td>
+              <th>답변상태</th>
+              <td>답변대기</td>
+            </tr>
+            <tr>
+              <th>문의 제목</th>
+              <td colspan="3">문의 제목입니다.</td>
+            </tr>
+            <tr>
+              <th>문의 내용</th>
+              <td colspan="3">
+                <div class="txt_area">
+                  <p>문의 내용입니다.</p>
+                </div>
+                <div class="img_wrap">
+                  <div class="img_area">
+                    <img src="./img/dummy_image.png" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <p class="label_name mt_40">
+            답변<span class="ml_20">2024-06-18</span>
+          </p>
+          <label class="w-100">
+            <textarea class="w-100"></textarea>
+            <p class="comment"><span class="count_leng">0</span> / 500</p>
           </label>
-          <p class="label_name required">이미지</p>
-          <div class="imgfile_wrap mt_15">
-            <div>
-              <label class="imgfile">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                <input
-                  name="imgfile"
-                  type="file"
-                  accept=".png, .jpg"
-                  required
-                />
-              </label>
-              <p class="comment">
-                * jpg, png 파일만 등록 가능<br />
-                * 10MB 이하만 업로드 가능
-              </p>
-            </div>
-          </div>
-          <p class="label_name required pt_20">노출여부</p>
-          <input type="hidden" />
-          <ul class="filter_select3">
-            <li class="on">
-              <label><input type="hidden" name="" checked />노출</label>
-            </li>
-            <li>
-              <label><input type="hidden" name="" />미노출</label>
-            </li>
-          </ul>
-          <p class="label_name required">노출기간</p>
-          <label class="date_wrap">
-            <div>
-              <input type="date" required />
-            </div>
-            ~
-            <div>
-              <input type="date" required />
-            </div>
-          </label>
-          <lable>
-            <p class="label_name required pt_10">노출위치</p>
-            <select>
-              <option>홈</option>
-              <option>캘린더</option>
-              <option>가이드런</option>
-              <option>딥파인더</option>
-              <option>아트마켓</option>
-            </select>
-          </lable>
-          <lable>
-            <p class="label_name pt_10">링크 URL</p>
-            <input type="text" />
-            <select>
-              <option value="_blank" selected>새창</option>
-              <option value="_self">현재창</option>
-            </select>
-          </lable>
-        </form>
+        </article>
         <div class="btm btn_area mt_40">
-          <button onclick="location.href='setting02.html'">목록</button>
-          <button type="submit">등록</button>
+          <button onclick="location.href='inquiry03.html'">목록</button>
+          <button type="submit">저장</button>
         </div>
       </section>
       <!----======== 내용부분 끝 ========---->
@@ -132,7 +111,6 @@
       $(document).ready(function () {
         $("#admin_top_area").load("./include/header.html");
         $("#admin_side_area").load("./include/sidebar.html");
-        $("#pagination").load("./include/pagination.html");
         $("#admin_footer_wrap").load("./include/footer.html");
       });
     </script>

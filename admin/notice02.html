@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>상품관리 / 가이드러너</title>
+    <title>소식관리 / 자주묻는질문</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,86 +54,15 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">상품관리 / 가이드러너</p>
-        <article class="board">
-          <div class="filter_wrap">
-            <div>
-              <p class="name">둥록일</p>
-              <input type="date" /> - <input type="date" />
-            </div>
-            <div>
-              <p>검색어</p>
-              <select>
-                <option>전체</option>
-                <option>상품번호</option>
-                <option>상품명</option>
-              </select>
-              <input
-                class="text"
-                style="width: 222px"
-                placeholder="검색어를 입력해주세요."
-              />
-            </div>
-          </div>
-          <div class="filter_wrap">
-            <div class="product_category">
-              <p>카테고리</p>
-              <select>
-                <option>전체</option>
-                <option>1:1 컨설팅</option>
-                <option>클래스</option>
-                <option>포트폴리오 멘토링</option>
-                <option>공모사업 지원가이드</option>
-                <option>기타</option>
-              </select>
-            </div>
-            <div>
-              <p>진열상태</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>진열</li>
-                <li>미진열</li>
-              </ul>
-            </div>
-          </div>
-          <div class="filter_wrap">
-            <div>
-              <p>판매상태</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>판매중</li>
-                <li>판매종료</li>
-              </ul>
-            </div>
-            <div>
-              <p>메인노출</p>
-              <ul class="filter_select">
-                <li class="on">전체</li>
-                <li>노출</li>
-                <li>비노출</li>
-              </ul>
-            </div>
-          </div>
-          <div class="btn_area">
-            <button type="button">
-              <i class="fa fa-search" aria-hidden="true"></i>검색
-            </button>
-            <button type="button">
-              <i class="fa fa-repeat" aria-hidden="true"></i>초기화
-            </button>
-          </div>
-        </article>
+        <p class="title">소식관리 / 자주묻는질문</p>
 
         <article id="search_result">
           <div class="btn_area">
             <button onclick="location.href='#none'" type="button" class="right">
               선택삭제
             </button>
-            <button onclick="location.href='product01_add.html'" type="button">
-              상품등록
-            </button>
-            <button onclick="openPopup('refund_policy01.html')" type="button">
-              취소/환불 정책
+            <button onclick="location.href='notice02_add.html' ">
+              신규등록
             </button>
           </div>
           <table class="table_defalt">
@@ -142,14 +71,9 @@
                 <th width="30px"><input type="checkbox" /></th>
                 <th width="50px">번호</th>
                 <th width="80px">관리</th>
-                <th width="120px">상품번호</th>
-                <th>상품명</th>
-                <th width="260px">카테고리</th>
-                <th width="220px">상품금액</th>
-                <th width="120px">진열상태</th>
-                <th width="80px">판매상태</th>
-                <th width="80px">메인노출</th>
-                <th width="100px">등록일</th>
+                <th width="100px">분류</th>
+                <th width="*">제목</th>
+                <th width="200px">등록일</th>
               </tr>
             </thead>
             <tbody>
@@ -160,18 +84,13 @@
                   <button
                     type="button"
                     class="in_btn"
-                    onclick="location.href='product01_edit.html'"
+                    onclick="location.href='notice02_edit.html' "
                   >
                     수정
                   </button>
                 </td>
-                <td>K08877254</td>
-                <td>컨설팅</td>
-                <td>1:1컨설팅</td>
-                <td>30,000</td>
-                <td>진열</td>
-                <td>판매중</td>
-                <td>노출</td>
+                <td>회원</td>
+                <td>질문입니다</td>
                 <td>2024-05-27</td>
               </tr>
             </tbody>
@@ -180,11 +99,85 @@
         </article>
       </section>
       <!----======== 내용부분 끝 ========---->
+      <!--모달-->
+      <article id="gethering03_detail" class="order_modal fullpage_modal">
+        <div class="board">
+          <a class="circle_btn" onclick="close_modal()"
+            ><i class="fa fa-times" aria-hidden="true"></i
+          ></a>
+          <p class="title">작품 상세</p>
+          <p class="label_name mt_20">작품 정보</p>
+          <table class="table_defalt">
+            <tr>
+              <th>아이디</th>
+              <td class="ta_left">dmonster</td>
+              <th>이름</th>
+              <td class="ta_left">홍길동</td>
+            </tr>
+            <tr>
+              <th>휴대폰 번호</th>
+              <td class="ta_left">010-1234-5678</td>
+              <th>공개일</th>
+              <td class="ta_left">2024-10-16 / 2024-10-21</td>
+            </tr>
+            <tr>
+              <th>작품 제목</th>
+              <td colspan="3" class="ta_left">홍길동의 포트폴리오 내용</td>
+            </tr>
+            <tr>
+              <th>내용</th>
+              <td colspan="3" class="ta_left">
+                <img src="./img/dummy_image.png" />홍길동의 포트폴리오
+              </td>
+            </tr>
+            <tr>
+              <th>첨부파일</th>
+              <td colspan="3" class="ta_left">
+                <a href="#none" download class="download_file"
+                  >test.jpg(3.2MB)</a
+                >
+                <a href="#none" download class="download_file"
+                  >test2.jpg(2.2MB)</a
+                >
+              </td>
+            </tr>
+          </table>
+          <p class="label_name mt_20">승인상태</p>
+          <div>
+            <ul class="filter_select mb_20">
+              <li class="on">승인대기</li>
+              <li>승인완료</li>
+            </ul>
+          </div>
+          <p class="label_name required mt_20">승인일</p>
+          <div class="label_wrap">
+            <label class="w-50">
+              <input type="text" class="w-100" value="2024-10-23" disabled />
+            </label>
+          </div>
+
+          <div class="btn_area">
+            <button onclick="close_modal()">취소</button>
+            <button>저장</button>
+          </div>
+        </div>
+      </article>
+      <script>
+        function open_modal(modal_id) {
+          $(modal_id).addClass("on");
+        }
+        $(".modal_close").on("click", function () {
+          $(".fullpage_modal").removeClass("on");
+        });
+        function close_modal() {
+          $(".fullpage_modal").removeClass("on");
+        }
+      </script>
+
       <!----======== 관리자 레이아웃 하단    ========---->
       <section id="admin_footer_wrap"></section>
       <!----======== 관리자 레이아웃 하단 끝 ========---->
     </div>
-
     <script>
       // 공통 영역
       $(document).ready(function () {

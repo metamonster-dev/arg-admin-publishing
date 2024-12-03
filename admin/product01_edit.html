@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>상품관리 / 상품수정</title>
+    <title>상품관리 / 가이드러너</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,22 +54,40 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">상품관리 / 아트마켓</p>
+        <p class="title">상품관리 / 가이드러너</p>
         <article>
           <form id="product_add_form" class="board">
+            <p class="label_name required mt_20">상품번호</p>
+            <div class="label_wrap">
+              <label class="w-25">
+                <input
+                  type="text"
+                  class="w-100"
+                  value="GU20241234657"
+                  disabled
+                />
+              </label>
+            </div>
+            <p class="label_name required mt_20">등록일</p>
+            <div class="label_wrap">
+              <label class="w-25">
+                <input type="text" class="w-100" value="2024-10-23" disabled />
+              </label>
+            </div>
             <p class="label_name required">카테고리</p>
             <div class="label_wrap">
               <label class="w-25">
                 <select class="w-100" disabled>
-                  <option>아트마켓</option>
+                  <option>가이드러너</option>
                 </select>
               </label>
               <label class="w-25">
                 <select class="w-100">
                   <option>선택</option>
-                  <option>공연</option>
-                  <option>작품</option>
-                  <option>판매</option>
+                  <option selected>1:1 컨설팅</option>
+                  <option>클래스</option>
+                  <option>포트폴리오 멘토링</option>
+                  <option>공모사업 지원가이드</option>
                   <option>기타</option>
                 </select>
               </label>
@@ -77,7 +95,7 @@
             <p class="label_name required mt_20">상품명</p>
             <div class="label_wrap">
               <label class="w-50">
-                <input type="text" class="w-100" />
+                <input type="text" class="w-100" value="개인 1:1 컨설팅" />
               </label>
             </div>
 
@@ -92,19 +110,23 @@
             <p class="label_name mt_20 required">판매상태</p>
             <div>
               <ul class="filter_select mb_20">
-                <li class="on">진열</li>
-                <li>미진열</li>
+                <li class="on">판매중</li>
+                <li>판매종료</li>
+              </ul>
+            </div>
+
+            <p class="label_name mt_20 required">메인노출</p>
+            <div>
+              <p class="comment">* 최소 3개 ~ 최대 5개 필수 선택</p>
+              <ul class="filter_select mb_20">
+                <li class="on">노출</li>
+                <li>비노출</li>
               </ul>
             </div>
 
             <label>
               <p class="label_name mt_20 required">상품금액</p>
-              <input type="text" class="w-25" />
-            </label>
-
-            <label>
-              <p class="label_name mt_20">재고수량</p>
-              <input type="text" class="w-25" />
+              <input type="text" class="w-55" />
             </label>
 
             <p class="label_name mt_40">상품이미지</p>
@@ -218,7 +240,7 @@
             <div class="label_wrap">
               <div>
                 <p class="label_name2 required">배송방법</p>
-                <ul class="filter_select4">
+                <ul class="filter_select4 mb_20">
                   <li class="on">
                     <label>
                       <input type="hidden" name="product_status" checked />
@@ -376,15 +398,6 @@
                 </label>
               </li>
             </ul>
-            <ul class="filter_select4_content">
-              <!-- 배송안함 선택시 -->
-              <li class="active"></li>
-              <!-- 택배 선택시 -->
-              <li>택배</li>
-              <!-- 직접배송 선택시 -->
-              <li>직접배송</li>
-            </ul>
-
             <p class="label_name required">관심사 키워드</p>
             <p class="comment">* 최소 2개 ~ 최대 3개 필수 선택</p>
             <div class="label_wrap">
@@ -487,13 +500,48 @@
             </div>
           </form>
           <div class="btn_area btm mt_40">
-            <button onclick="location.href='product03.html'" type="button">
+            <button onclick="location.href='product01.html'" type="button">
               목록
             </button>
-            <button type="submit">등록</button>
+            <button type="button">삭제</button>
+            <button type="submit">수정</button>
           </div>
         </article>
       </section>
+      <script>
+        /* 배송비토글*/
+        $("#deliveryType li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".delivery_type").removeClass("on");
+          $(".delivery_type." + targetClass).addClass("on");
+          $("#deliveryType li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /* 배송토글*/
+        $("#deliveryFee li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".delivery_fee").removeClass("on");
+          $(".delivery_fee." + targetClass).addClass("on");
+          $("#deliveryFee li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /* 상품노출 토글*/
+        $("#similarProducts li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".similarProducts").removeClass("on");
+          $(".similarProducts." + targetClass).addClass("on");
+          $("#similarProducts li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /*판매기간 토글*/
+        $("#period li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".period").removeClass("on");
+          $(".period." + targetClass).addClass("on");
+          $("#period li").removeClass("on");
+          $(this).addClass("on");
+        });
+      </script>
       <!----======== 내용부분 끝 ========---->
       <!----======== 관리자 레이아웃 하단    ========---->
       <section id="admin_footer_wrap"></section>

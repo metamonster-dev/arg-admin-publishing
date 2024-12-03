@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>주문관리 / 딥파인더</title>
+    <title>주문관리 / 반품관리</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,15 +54,18 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">주문관리 / 딥파인더</p>
+        <p class="title">주문관리 / 반품관리</p>
+
         <article class="board">
           <div class="filter_wrap">
             <div>
-              <p class="name">기간</p>
+              <p class="name">조회기간</p>
               <select>
+                <option>반품신청일</option>
                 <option>결제일</option>
-                <option>주문확인일</option>
-                <option>배송처리일</option>
+                <option>수거완료일</option>
+                <option>반품완료일</option>
+                <option>반품거절일</option>
               </select>
               <input type="date" /> - <input type="date" />
               <ul class="filter_select2">
@@ -80,11 +83,13 @@
               <select>
                 <option>전체</option>
                 <option>주문번호</option>
+                <option>수거 송장번호</option>
                 <option>상품번호</option>
                 <option>상품명</option>
-                <option>구매자 아이디</option>
                 <option>구매자명</option>
-                <option>구매자 연락처</option>
+                <option>구매자 아이디</option>
+                <option>수령인</option>
+                <option>수령인연락처</option>
               </select>
               <input
                 class="text"
@@ -95,16 +100,18 @@
           </div>
           <div class="filter_wrap">
             <div>
-              <p>주문상태</p>
+              <p>반품상태</p>
               <ul class="filter_select">
                 <li class="on">전체</li>
-                <li>신규주문</li>
-                <li>상담접수</li>
-                <li>진행중</li>
-                <li>진행완료</li>
+                <li>반품신청</li>
+                <li>수거중</li>
+                <li>수거완료</li>
+                <li>반품완료</li>
+                <li>반품거절</li>
               </ul>
             </div>
           </div>
+
           <div class="btn_area">
             <button><i class="fa fa-search" aria-hidden="true"></i>검색</button>
             <button>
@@ -115,10 +122,14 @@
 
         <article id="search_result">
           <div class="btn_area">
-            <button>상담접수</button>
-            <button onclick="open_modal('#order_modal02')">진행중</button>
-            <button>진행완료</button>
-            <button>판매취소</button>
+            <button>상품수거</button>
+            <button>수거완료</button>
+            <button onclick="open_modal('#return_completed_modal')">
+              반품완료
+            </button>
+            <button onclick="open_modal('#return_reject_modal')">
+              반품거절
+            </button>
             <button class="green">
               <i class="fa fa-download" aria-hidden="true"></i>엑셀 다운로드
             </button>
@@ -130,17 +141,22 @@
                   <th width="50px"><input type="checkbox" /></th>
                   <th width="80px">관리</th>
                   <th width="220px">주문번호</th>
-                  <th width="160px">주문상태</th>
-                  <th width="500px">상품명</th>
-                  <th width="120px">결제수단</th>
-                  <th width="160px">결제일시</th>
-                  <th width="220px">상품번호</th>
-                  <th width="120px">수량</th>
-                  <th width="140px">상품가격</th>
-                  <th width="140px">결제금액</th>
-                  <th width="120px">구매자 아이디</th>
+                  <th width="120px">반품상태</th>
+                  <th width="220px">수거 택배사</th>
+                  <th width="220px">수거 송장번호</th>
+                  <th width="220px">결제일시</th>
+                  <th width="220px">반품신청일시</th>
+                  <th width="220px">수거완료일시</th>
+                  <th width="220px">구매자 아이디</th>
                   <th width="120px">구매자명</th>
-                  <th width="180px">구매자 연락처</th>
+                  <th width="500px">상품명</th>
+                  <th width="220px">상품번호</th>
+                  <th width="100px">수량</th>
+                  <th width="120px">상품가격</th>
+                  <th width="120px">결제금액</th>
+                  <th width="120px">결제수단</th>
+                  <th width="220px">반품완료일시</th>
+                  <th width="220px">반품거절일시</th>
                 </tr>
               </thead>
               <tbody>
@@ -155,17 +171,34 @@
                     </button>
                   </td>
                   <td>2024061269149171</td>
-                  <td>신규주문</td>
-                  <td>예술인 등록 서비스</td>
+                  <td>반품신청</td>
+                  <td>
+                    <select class="w-100">
+                      <option>선택</option>
+                      <option>CJ 대한통운</option>
+                      <option>롯데글로벌로지스</option>
+                      <option>한진택배</option>
+                      <option>우체국택배</option>
+                      <option>로젠택배</option>
+                      <option>경동택배</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" />
+                  </td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>asdb1235</td>
+                  <td>홍길동</td>
+                  <td>작품 공연</td>
+                  <td>2024061269149171</td>
+                  <td>1</td>
+                  <td>25,000</td>
+                  <td>26,000</td>
                   <td>신용카드</td>
                   <td>2024-06-12 13:49:10</td>
-                  <td>2024061269149171</td>
-                  <td>12</td>
-                  <td>30,000</td>
-                  <td>30,000</td>
-                  <td>asnjmnf2</td>
-                  <td>홍길동</td>
-                  <td>010-1234-1234</td>
+                  <td>2024-06-12 13:49:10</td>
                 </tr>
                 <tr>
                   <td><input type="checkbox" /></td>
@@ -178,17 +211,62 @@
                     </button>
                   </td>
                   <td>2024061269149171</td>
-                  <td>신규주문</td>
-                  <td>예술인 등록 서비스</td>
+                  <td>반품신청</td>
+                  <td>
+                    <select disabled class="w-100">
+                      <option>선택</option>
+                      <option>CJ 대한통운</option>
+                      <option>롯데글로벌로지스</option>
+                      <option>한진택배</option>
+                      <option>우체국택배</option>
+                      <option>로젠택배</option>
+                      <option>경동택배</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" disabled />
+                  </td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>asdb1235</td>
+                  <td>홍길동</td>
+                  <td>작품 공연</td>
+                  <td>2024061269149171</td>
+                  <td>1</td>
+                  <td>25,000</td>
+                  <td>26,000</td>
                   <td>신용카드</td>
                   <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button
+                      class="in_btn"
+                      onclick="open_modal('#order_detail')"
+                    >
+                      상세
+                    </button>
+                  </td>
                   <td>2024061269149171</td>
-                  <td>42</td>
-                  <td>30,000</td>
-                  <td>30,000</td>
-                  <td>sddsf224</td>
+                  <td>반품신청</td>
+                  <td>롯데글로벌로지스</td>
+                  <td>1234567</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>asdb1235</td>
                   <td>홍길동</td>
-                  <td>010-1234-1234</td>
+                  <td>작품 공연</td>
+                  <td>2024061269149171</td>
+                  <td>1</td>
+                  <td>25,000</td>
+                  <td>26,000</td>
+                  <td>신용카드</td>
+                  <td>2024-06-12 13:49:10</td>
+                  <td>2024-06-12 13:49:10</td>
                 </tr>
               </tbody>
             </table>
@@ -198,62 +276,60 @@
       </section>
       <!----======== 내용부분 끝 ========---->
       <!--모달-->
-      <article id="order_modal02" class="order_modal fullpage_modal">
+      <article id="return_completed_modal" class="order_modal fullpage_modal">
         <div class="board">
           <a class="circle_btn" onclick="close_modal()"
             ><i class="fa fa-times" aria-hidden="true"></i
           ></a>
-          <p class="title">진행중 상태 변경</p>
-
-          <p class="label_name">상품명</p>
-          <div class="label_wrap">
-            <label class="w-50 mb-0">
-              <input type="text" class="w-100" value="1:1 컨설팅" disabled />
-            </label>
-          </div>
-          <p class="label_name">주문자 정보</p>
-          <div class="label_wrap">
-            <label class="w-50 mb-0">
-              <input
-                type="text"
-                class="w-100"
-                value="홍길동(010-1234-1234)"
-                disabled
-              />
-            </label>
-          </div>
-          <p class="label_name">회차 정보</p>
-          <div class="label_wrap w-50" style="align-items: center">
-            <p class="w-30">현재 진행 회차</p>
-            <label class="mb-0 w-10">
-              <input type="number" class="w-100" />
-            </label>
-            <p class="w-30">총 진행 회차</p>
-            <label class="mb-0">
-              <input type="number" />
-            </label>
-          </div>
-
-          <div id="dateContainer1">
-            <p class="label_name required">일정</p>
-            <div class="label_wrap w-50" style="align-items: center">
-              <input type="date" />
-              <input type="time" />
-              ~
-              <input type="date" />
-              <input type="time" />
-              <button class="add_btn1">+ 추가</button>
-            </div>
-          </div>
-          <p class="label_name">메모</p>
+          <p class="title">반품 완료</p>
+          <p class="label_name">반품 사유</p>
           <div class="label_wrap">
             <label class="w-100 mb-0">
               <input type="text" class="w-100" />
             </label>
           </div>
           <div class="btn_area">
-            <button onclick="close_modal()">취소</button>
-            <button type="submit">수정</button>
+            <button onclick="close_modal()">닫기</button>
+            <button type="submit">저장</button>
+          </div>
+        </div>
+      </article>
+
+      <article id="return_reject_modal" class="order_modal fullpage_modal">
+        <div class="board">
+          <a class="circle_btn" onclick="close_modal()"
+            ><i class="fa fa-times" aria-hidden="true"></i
+          ></a>
+          <p class="title">반품 거절</p>
+          <div class="label_wrap">
+            <label class="w-50">
+              <p class="label_name">재배송 택배사</p>
+              <select class="w-100">
+                <option>택배사 선택</option>
+                <option>CJ 대한통운</option>
+                <option>롯데글로벌로지스</option>
+                <option>한진택배</option>
+                <option>우체국택배</option>
+                <option>로젠택배</option>
+                <option>경동택배</option>
+              </select>
+            </label>
+            <label class="w-50">
+              <p class="label_name">재배송 송장번호</p>
+              <input type="text" class="w-100" placeholder="송장번호 입력" />
+            </label>
+          </div>
+          <p class="label_name">거절 사유</p>
+          <div class="label_wrap">
+            <label class="w-100 mb-0">
+              <input type="text" class="w-100" />
+              <p class="comment"><span class="count_leng">0</span> / 200</p>
+            </label>
+          </div>
+
+          <div class="btn_area">
+            <button onclick="close_modal()">닫기</button>
+            <button type="submit">저장</button>
           </div>
         </div>
       </article>
@@ -263,40 +339,57 @@
           <a class="circle_btn" onclick="close_modal()"
             ><i class="fa fa-times" aria-hidden="true"></i
           ></a>
-          <p class="title">주문 상세</p>
-          <p class="order_number">주문상태 : <span>진행중</span></p>
+          <p class="title">취소상세</p>
+          <p class="order_number">반품상태 : <span>취소신청</span></p>
           <p class="title">주문 상세정보</p>
           <table class="order_table table_defalt">
+            <tr>
+              <th>주문상태</th>
+              <td colspan="3" class="fw_700">신규주문</td>
+            </tr>
             <tr>
               <th>주문번호</th>
               <td colspan="3">2024061215270331</td>
             </tr>
-            <tr>
-              <th>회차 정보</th>
-              <td colspan="3">현재 진행 회차 : 1 / 총 진행 회차 : 3</td>
-            </tr>
-            <tr>
-              <th>일정</th>
-              <td colspan="3">2024-10-25 ~ 2024-12-09</td>
-            </tr>
-            <tr>
-              <th>메모</th>
-              <td colspan="3">-</td>
-            </tr>
-          </table>
-          <p class="title">주문 상품정보</p>
-          <table class="order_table table_defalt">
             <tr>
               <th>상품번호</th>
               <td colspan="3">2024061215270331</td>
             </tr>
             <tr>
               <th>상품명</th>
-              <td colspan="3">1:1 컨설팅 프로그램</td>
+              <td colspan="3">공연</td>
             </tr>
             <tr>
               <th>상품가격</th>
               <td colspan="3">25,000</td>
+            </tr>
+          </table>
+          <p class="title">반품정보</p>
+          <table class="order_table table_defalt">
+            <tr>
+              <th>반품신청일시</th>
+              <td colspan="3">2024-06-12 13:49:10</td>
+            </tr>
+            <tr>
+              <th>반품사유</th>
+              <td colspan="3">
+                단순변심 /<br />
+                상세 사유
+              </td>
+            </tr>
+            <tr>
+              <th>반품완료일시</th>
+              <td>2024-06-12 13:49:10</td>
+              <th>반품거절일시</th>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>반품완료사유</th>
+              <td colspan="3">-</td>
+            </tr>
+            <tr>
+              <th>반품거절사유</th>
+              <td colspan="3">-</td>
             </tr>
           </table>
           <p class="title">구매자 정보</p>
@@ -326,8 +419,59 @@
               <th>결제금액</th>
               <td>26,000</td>
             </tr>
+            <tr>
+              <th>배송비</th>
+              <td colspan="3">0</td>
+            </tr>
           </table>
-          <button onclick="close_modal()">닫기</button>
+          <p class="title">배송정보</p>
+          <table class="order_table table_defalt">
+            <tr>
+              <th>상품수거일시</th>
+              <td>2024-06-12 13:49:10</td>
+              <th>수거완료일</th>
+              <td>2024-06-12 13:49:10</td>
+            </tr>
+            <tr>
+              <th>수거 택배사</th>
+              <td>우체국</td>
+              <th>수거 송장번호</th>
+              <td>456395318400</td>
+            </tr>
+            <tr>
+              <th>재배송 택배사</th>
+              <td>-</td>
+              <th>재배송 송장번호</th>
+              <td>-</td>
+            </tr>
+          </table>
+          <p class="title">반품지 정보</p>
+          <table class="order_table table_defalt">
+            <tr>
+              <th>수령인</th>
+              <td>홍길동</td>
+              <th>수령인 연락처</th>
+              <td>010-1234-5678</td>
+            </tr>
+            <tr>
+              <th>반품지</th>
+              <td colspan="3">(우편번호) 기본주소 + 상세주소</td>
+            </tr>
+            <tr>
+              <th>베송메모</th>
+              <td colspan="3">없음</td>
+            </tr>
+          </table>
+          <p class="title">관리자 메모</p>
+          <div class="label_wrap">
+            <label class="w-100">
+              <input type="text" class="w-100" />
+            </label>
+          </div>
+          <div class="btn_area">
+            <button onclick="close_modal()">닫기</button>
+            <button type="submit">저장</button>
+          </div>
         </div>
       </article>
 

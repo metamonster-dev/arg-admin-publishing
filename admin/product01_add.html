@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>상품관리 / 상품수정</title>
+    <title>상품관리 / 가이드러너</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -57,23 +57,6 @@
         <p class="title">상품관리 / 가이드러너</p>
         <article>
           <form id="product_add_form" class="board">
-            <p class="label_name required mt_20">상품번호</p>
-            <div class="label_wrap">
-              <label class="w-25">
-                <input
-                  type="text"
-                  class="w-100"
-                  value="GU20241234657"
-                  disabled
-                />
-              </label>
-            </div>
-            <p class="label_name required mt_20">등록일</p>
-            <div class="label_wrap">
-              <label class="w-25">
-                <input type="text" class="w-100" value="2024-10-23" disabled />
-              </label>
-            </div>
             <p class="label_name required">카테고리</p>
             <div class="label_wrap">
               <label class="w-25">
@@ -95,7 +78,7 @@
             <p class="label_name required mt_20">상품명</p>
             <div class="label_wrap">
               <label class="w-50">
-                <input type="text" class="w-100" value="개인 1:1 컨설팅" />
+                <input type="text" class="w-100" />
               </label>
             </div>
 
@@ -126,7 +109,7 @@
 
             <label>
               <p class="label_name mt_20 required">상품금액</p>
-              <input type="text" class="w-55" />
+              <input type="text" class="w-25" />
             </label>
 
             <p class="label_name mt_40">상품이미지</p>
@@ -240,7 +223,7 @@
             <div class="label_wrap">
               <div>
                 <p class="label_name2 required">배송방법</p>
-                <ul class="filter_select3 mb_20">
+                <ul class="filter_select4">
                   <li class="on">
                     <label>
                       <input type="hidden" name="product_status" checked />
@@ -262,6 +245,142 @@
                 </ul>
               </div>
             </div>
+            <ul class="filter_select4_content">
+              <!-- 배송안함 선택시 -->
+              <li class="mb_20 active"></li>
+              <!-- 택배 선택시 -->
+              <li>
+                <p class="label_name2 required">택배사</p>
+                <select class="mb_20 w-25">
+                  <option>우체국 택배</option>
+                  <option>선택</option>
+                  <option>선택</option>
+                </select>
+                <p class="label_name required">상품별 배송비</p>
+                <div class="label_wrap">
+                  <div>
+                    <ul class="filter_select3">
+                      <li class="on">
+                        <label>
+                          <input type="hidden" name="product_status" checked />
+                          무료
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="hidden" name="product_status" />
+                          조건부무료
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="hidden" name="product_status" />
+                          유료
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <label class="mb_20">
+                  <p class="label_name2">제주/도서산간 추가배송비</p>
+                  <input type="text" class="w-25" />
+                </label>
+                <label class="mb_20">
+                  <p class="label_name2">
+                    지역별 차등 배송비(제주/.도서산간 제외)
+                  </p>
+                  <input type="text" class="w-25" /> 원 이상 무료
+                </label>
+                <label class="address_wrap mb_20">
+                  <p class="label_name2 required">출고지</p>
+                  <p class="address mb_5">
+                    <span
+                      ><input
+                        type="text"
+                        style="width: 100px"
+                        readonly
+                        disabled
+                      /><button type="button" class="in_btn">
+                        우편번호
+                      </button></span
+                    ><input
+                      type="text"
+                      style="width: 322px"
+                      readonly
+                      disabled
+                    />
+                  </p>
+                  <input type="text" />
+                </label>
+              </li>
+              <!-- 직접배송 선택시 -->
+              <li>
+                <p class="label_name required">상품별 배송비</p>
+                <div class="label_wrap">
+                  <div>
+                    <ul class="filter_select3">
+                      <li class="on">
+                        <label>
+                          <input type="hidden" name="product_status" checked />
+                          무료
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="hidden" name="product_status" />
+                          조건부무료
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="hidden" name="product_status" />
+                          유료
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <label class="mb_20">
+                  <p class="label_name2 required">기본 배송비</p>
+                  <input type="text" class="w-25" />
+                </label>
+                <label class="mb_20">
+                  <p class="label_name2 required">배송비 조건</p>
+                  <input type="text" class="w-25" /> 원 이상 무료
+                </label>
+                <label class="mb_20">
+                  <p class="label_name2">제주/도서산간 추가배송비</p>
+                  <input type="text" class="w-25" />
+                </label>
+                <label class="mb_20">
+                  <p class="label_name2">
+                    지역별 차등 배송비(제주/.도서산간 제외)
+                  </p>
+                  <input type="text" class="w-25" /> 원 이상 무료
+                </label>
+                <label class="address_wrap mb_20">
+                  <p class="label_name2 required">출고지</p>
+                  <p class="address mb_5">
+                    <span
+                      ><input
+                        type="text"
+                        style="width: 100px"
+                        readonly
+                        disabled
+                      /><button type="button" class="in_btn">
+                        우편번호
+                      </button></span
+                    ><input
+                      type="text"
+                      style="width: 322px"
+                      readonly
+                      disabled
+                    />
+                  </p>
+                  <input type="text" />
+                </label>
+              </li>
+            </ul>
             <p class="label_name required">관심사 키워드</p>
             <p class="comment">* 최소 2개 ~ 최대 3개 필수 선택</p>
             <div class="label_wrap">
@@ -364,9 +483,10 @@
             </div>
           </form>
           <div class="btn_area btm mt_40">
-            <button type="button">목록</button>
-            <button type="button">삭제</button>
-            <button type="submit">수정</button>
+            <button onclick="location.href='product01.html'" type="button">
+              목록
+            </button>
+            <button type="submit">등록</button>
           </div>
         </article>
       </section>

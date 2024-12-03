@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>어드민 로그인</title>
+    <title>취소/환불 정책</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -34,40 +34,38 @@
       rel="stylesheet"
       href="https://uicdn.toast.com/editor/latest/toastui-editor.css"
     />
-    <link rel="stylesheet" href="./css/admin.css" />
-    <link rel="stylesheet" href="./css/custom.css" />
-    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+
     <!-- JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-    <script src="./js/admin.js"></script>
+    <script src="../js/admin.js"></script>
   </head>
-
   <body>
-    <div id="login" class="admin_common">
-      <article id="login_area" class="board">
-        <div class="logo_area">
-          <img class="logo" src="./img/logo_wide_b.png" alt="logo.png" />
-          <p>ADMIN</p>
+    <div class="adminPopup_common">
+      <div class="tit_area">
+        <p class="title">취소/환불</p>
+      </div>
+      <div class="popup_contents">
+        <p class="label_name">가이드러너 취소/환불 정책</p>
+        <div id="content"></div>
+        <script>
+          const editor = new toastui.Editor({
+            el: document.querySelector("#content"), // 에디터를 적용할 요소 (컨테이너)
+            height: "350px", // 에디터 영역의 높이 값 (OOOpx || auto)
+            initialEditType: "wysiwyg", // 최초로 보여줄 에디터 타입 (markdown || wysiwyg)
+            initialValue: "내용을 입력해 주세요.", // 내용의 초기 값으로, 반드시 마크다운 문자열 형태여야 함
+            previewStyle: "vertical", // 마크다운 프리뷰 스타일 (tab || vertical)
+          });
+        </script>
+        <div class="btn_area center">
+          <button onClick="window.close()">닫기</button>
+          <button>저장</button>
         </div>
-        <form id="login_form" class="admin_form">
-          <label for="admin_id">
-            <input type="text" placeholder="아이디를 입력해 주세요" />
-            <!-- 유효성 실패 문구 -->
-            <!-- <p class="warnning-txt" style="display: block"> -->
-            <p class="warnning-txt">아이디를 입력해주세요</p>
-          </label>
-          <label for="admin_password">
-            <input type="password" placeholder="비밀번호 입력해 주세요" />
-            <p class="warnning-txt">비밀번호를 입력해주세요</p>
-          </label>
-        </form>
-      </article>
-      <!-- 모든 필드 입력 완료시 -->
-      <!-- <button type="submit">로그인</button> -->
-      <button type="submit" disabled>로그인</button>
-      <p class="warnning-txt">아이디 또는 비밀번호를 확인해주세요</p>
+      </div>
     </div>
   </body>
 </html>

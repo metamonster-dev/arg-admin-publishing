@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>설정 / 배너관리</title>
+    <title>설정 / 메인배너관리</title>
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,16 +54,17 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">설정 / 팝업관리</p>
+        <p class="title">설정 / 메인배너관리</p>
         <form class="preferences_form board_write board">
           <label>
             <p class="label_name">제목</p>
             <input type="text" />
           </label>
-          <p class="label_name required">이미지</p>
+          <p class="label_name mt_40 required">이미지</p>
           <div class="imgfile_wrap mt_15">
             <div>
-              <label class="imgfile">
+              <p class="label_name2">PC (1920 * 700)</p>
+              <label class="imgfile pc">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 <input
                   name="imgfile"
@@ -77,6 +78,13 @@
                 * 10MB 이하만 업로드 가능
               </p>
             </div>
+            <div>
+              <p class="label_name2">모바일 (400 * 530)</p>
+              <label class="imgfile mobile">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <input name="imgfile" type="file" accept=".png, .jpg" />
+              </label>
+            </div>
           </div>
           <p class="label_name required pt_20">노출여부</p>
           <input type="hidden" />
@@ -88,28 +96,12 @@
               <label><input type="hidden" name="" />미노출</label>
             </li>
           </ul>
-          <p class="label_name required">노출기간</p>
-          <label class="date_wrap">
-            <div>
-              <input type="date" required />
-            </div>
-            ~
-            <div>
-              <input type="date" required />
-            </div>
-          </label>
           <lable>
-            <p class="label_name required pt_10">노출위치</p>
-            <select>
-              <option>홈</option>
-              <option>캘린더</option>
-              <option>가이드런</option>
-              <option>딥파인더</option>
-              <option>아트마켓</option>
-            </select>
+            <p class="label_name required">노출순서</p>
+            <input type="text" />
           </lable>
           <lable>
-            <p class="label_name pt_10">링크 URL</p>
+            <p class="label_name">링크 URL</p>
             <input type="text" />
             <select>
               <option value="_blank" selected>새창</option>
@@ -117,8 +109,9 @@
             </select>
           </lable>
         </form>
+
         <div class="btm btn_area mt_40">
-          <button onclick="location.href='setting02.html'">목록</button>
+          <button onclick="location.href='setting01.html'">목록</button>
           <button type="submit">등록</button>
         </div>
       </section>

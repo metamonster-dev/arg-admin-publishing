@@ -54,22 +54,24 @@
       <!----======== 관리자 레이아웃 상단 끝 ========---->
       <!----======== 내용부분 ========---->
       <section id="admin_contents_wrap">
-        <p class="title">상품관리 / 아트마켓</p>
+        <p class="title">상품관리 / 딥파인더</p>
         <article>
           <form id="product_add_form" class="board">
             <p class="label_name required">카테고리</p>
             <div class="label_wrap">
               <label class="w-25">
                 <select class="w-100" disabled>
-                  <option>아트마켓</option>
+                  <option>딥파인더</option>
                 </select>
               </label>
               <label class="w-25">
                 <select class="w-100">
                   <option>선택</option>
-                  <option>공연</option>
-                  <option>작품</option>
-                  <option>판매</option>
+                  <option>예술인 등록 서비스</option>
+                  <option>작품 저작권 등록 서비스</option>
+                  <option>협회가입, 작품 등록 서비스</option>
+                  <option>기획운영대행</option>
+                  <option>디지털퍼블리싱</option>
                   <option>기타</option>
                 </select>
               </label>
@@ -99,11 +101,6 @@
 
             <label>
               <p class="label_name mt_20 required">상품금액</p>
-              <input type="text" class="w-25" />
-            </label>
-
-            <label>
-              <p class="label_name mt_20">재고수량</p>
               <input type="text" class="w-25" />
             </label>
 
@@ -376,15 +373,6 @@
                 </label>
               </li>
             </ul>
-            <ul class="filter_select4_content">
-              <!-- 배송안함 선택시 -->
-              <li class="active"></li>
-              <!-- 택배 선택시 -->
-              <li>택배</li>
-              <!-- 직접배송 선택시 -->
-              <li>직접배송</li>
-            </ul>
-
             <p class="label_name required">관심사 키워드</p>
             <p class="comment">* 최소 2개 ~ 최대 3개 필수 선택</p>
             <div class="label_wrap">
@@ -487,13 +475,47 @@
             </div>
           </form>
           <div class="btn_area btm mt_40">
-            <button onclick="location.href='product03.html'" type="button">
+            <button onclick="location.href='product02.html'" type="button">
               목록
             </button>
             <button type="submit">등록</button>
           </div>
         </article>
       </section>
+      <script>
+        /* 배송비토글*/
+        $("#deliveryType li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".delivery_type").removeClass("on");
+          $(".delivery_type." + targetClass).addClass("on");
+          $("#deliveryType li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /* 배송토글*/
+        $("#deliveryFee li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".delivery_fee").removeClass("on");
+          $(".delivery_fee." + targetClass).addClass("on");
+          $("#deliveryFee li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /* 상품노출 토글*/
+        $("#similarProducts li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".similarProducts").removeClass("on");
+          $(".similarProducts." + targetClass).addClass("on");
+          $("#similarProducts li").removeClass("on");
+          $(this).addClass("on");
+        });
+        /*판매기간 토글*/
+        $("#period li").on("click", function () {
+          var targetClass = $(this).data("target");
+          $(".period").removeClass("on");
+          $(".period." + targetClass).addClass("on");
+          $("#period li").removeClass("on");
+          $(this).addClass("on");
+        });
+      </script>
       <!----======== 내용부분 끝 ========---->
       <!----======== 관리자 레이아웃 하단    ========---->
       <section id="admin_footer_wrap"></section>
