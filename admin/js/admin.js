@@ -41,8 +41,6 @@ $(document).ready(function () {
       $(".filter_select4_content > li").removeClass("active");
       $(this).addClass("on");
       $(".filter_select4_content > li:eq(" + index + ")").addClass("active");
-
-      console.log($(".filter_select4_content > li:eq(" + index + ")"));
     });
   });
 
@@ -55,8 +53,6 @@ $(document).ready(function () {
       $(".filter_select5_content").removeClass("active");
       $(this).addClass("on");
       $(".filter_select5_content:eq(" + index + ")").addClass("active");
-
-      console.log($(".filter_select5_content:eq(" + index + ")"));
     });
   });
   ////////////////////////////////////////////////
