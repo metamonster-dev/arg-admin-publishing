@@ -106,7 +106,7 @@
       </li>
       <!--DEPTH 1-->
       <li class="adm_nav_depth1">
-        <a href="./reveiw.html"
+        <a href="./review.html"
           ><span
             ><i class="fa fa-pencil before" aria-hidden="true"></i
             >후기관리</span
@@ -173,8 +173,10 @@
     // DEPTH 1링크 있을 떄
     $(".adm_nav_depth1 a").each(function () {
       const linkUrl = $(this).attr("href");
+      console.log(currentUrl.split(".")[0]);
+      console.log(linkUrl.slice(1).split(".")[0]);
 
-      if (currentUrl.includes(linkUrl.slice(1).split(".")[0])) {
+      if (currentUrl.split(".")[0].includes(linkUrl.slice(1).split(".")[0])) {
         $(this).closest(".adm_nav_depth1").addClass("on");
       } else {
         $(this).closest(".adm_nav_depth1").removeClass("on");
